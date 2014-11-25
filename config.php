@@ -7,7 +7,7 @@ return [
     ],
     'messages' => [
         'total' => 50,
-        'amount_full_messages' => 50 - 30,
+        'amount_full_messages' => 50 - 10,
         'amount_chars_old_messages' => 5,
     ],
     'db' => [
