@@ -7,11 +7,19 @@
     <script>
         $(document).ready(function() {
             $('form').on('submit', function () {
-                $.post('index.php',{'message': $('form textarea').val()})
-                    .done(function(data) {
-                        location.href = 'index.php';
-                    });
+                    $('input[type=submit]').attr('disabled', 'disabled');
+                    $.post('index.php', {'message': $('form textarea').val()})
+                        .done(function (data) {
+                            location.href = 'index.php';
+                        });
                 return false;
+            });
+            $('form textarea').on('keyup', function(){
+                if ($.trim($('form textarea').val())) {
+                     $(this)[0].setCustomValidity('');
+                } else {
+                    $(this)[0].setCustomValidity('Enter your text message');
+                }
             });
         });
     </script>
